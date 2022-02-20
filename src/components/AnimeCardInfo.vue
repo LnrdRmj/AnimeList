@@ -1,18 +1,23 @@
 <template>
     
-    <div class='flex flex-col
-                border-teal-600 border-solid border-2
-                h-full opacity-0'
-                :style='animationStyle'
-                :id = 'this.id'>
-                
-        <div class='text-xl text-center flex justify-center content-center h-min'><div>{{ title }}</div></div>
+    <router-link :to='"/animeInfo/" + title'>
 
-        <div class='overflow-hidden h-full'>
-            <img :src="imageUrl" :alt="title" class='h-full w-full'>
+        <div class='flex flex-col
+                    border-teal-600 border-solid border-2
+                    h-full opacity-0'
+                    :style='animationStyle'
+                    :id='this.id'
+                    >
+                    
+            <div class='text-xl text-center flex justify-center content-center h-min'><div>{{ title }}</div></div>
+
+            <div class='overflow-hidden h-full'>
+                <img :src="imageUrl" :alt="title" class='h-full w-full'>
+            </div>
+
         </div>
 
-    </div>
+    </router-link>
 
 </template>
 
@@ -29,6 +34,9 @@ export default {
     },
     methods:{
         show: function(){ this.animationName = 'fadein' },
+        goToPageInfo: function(){
+
+        }
     },
     computed:{
         animationStyle: function(){
