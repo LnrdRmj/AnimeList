@@ -5,7 +5,9 @@
 
     <Header/>
 
-    <AnimeListContainer/>
+    <router-view></router-view>
+
+    <!-- <AnimeListContainer/> -->
 
   </div>  
 
@@ -13,12 +15,10 @@
 
 <script>
 import Header from './components/Header.vue'
-import AnimeListContainer from './components/AnimeListContainer.vue'
 
 export default {
   components: {
     Header,
-    AnimeListContainer
   }
 }
 </script>

@@ -6,7 +6,7 @@
                 :style='animationStyle'
                 :id = 'this.id'>
                 
-        <div class='text-xl text-center h-12 flex justify-center content-center'><div>{{ title }}</div></div>
+        <div class='text-xl text-center flex justify-center content-center h-min'><div>{{ title }}</div></div>
 
         <div class='overflow-hidden h-full'>
             <img :src="imageUrl" :alt="title" class='h-full w-full'>
