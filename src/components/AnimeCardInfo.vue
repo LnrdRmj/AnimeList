@@ -2,7 +2,9 @@
     
     <div class='flex flex-col
                 border-teal-600 border-solid border-2
-                h-full delay-1000'>
+                h-full opacity-0'
+                :style='animationStyle'
+                :id = 'this.id'>
                 
         <div class='text-xl text-center h-12 flex justify-center content-center'><div>{{ title }}</div></div>
 
@@ -15,13 +17,71 @@
 </template>
 
 <script>
+
 export default {
-    props:['title', 'description', 'image-url']
+    props:['title', 'description', 'image-url', 'pos'],
+    data() {
+        return {
+            delay: 100,
+            animationName: 'none',
+            id: '',
+        }
+    },
+    methods:{
+        show: function(){ this.animationName = 'fadein' },
+    },
+    computed:{
+        animationStyle: function(){
+            return {
+                animationName: this.animationName,
+                animationDuration: '1s',
+                // animationDelay: this.pos * this.delay + 'ms',
+                animationFillMode: 'forwards',
+            }
+        },
+    },
+    created: function(){
+
+        this.id = 'anime-card-' + this.pos;
+
+    },
+    mounted: function () {
+
+        var that = this // Very scuffed
+
+        setTimeout(() => {
+            
+            var observer = new IntersectionObserver(function(entries) {
+
+                // isIntersecting is true when element and viewport are overlapping
+                // isIntersecting is false when element and viewport don't overlap
+                if(entries[0].isIntersecting === true){
+                    that.show()
+                    console.log('Ora ' + that.id + ' è visibile')
+                    console.log(entries)
+                }
+  
+            }, { threshold: [0.1] })
+
+            observer.observe(this.$el)
+
+        }, 100); // Questo delay serve perchè per una frazione di secondo tutti i div sono ad altezza 0 e risultano dentro la portview
+
+    }
 }
 </script>
 
-<style scoped>
+<style>
 
+    @keyframes fadein {
+        
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
 
+    }
 
 </style>

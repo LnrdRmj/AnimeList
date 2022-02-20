@@ -10,8 +10,36 @@
                     p-5 duration-75
                     bg-white">
             
-            <AnimeCard title="Attack on Titan" description="Bell'anime" image-url="https://m.media-amazon.com/images/I/51K4w8DY5cL._AC_.jpg"/>
-            <AnimeCard title="Bungo stray dogs" description="Bell'anime" image-url="https://m.media-amazon.com/images/I/71H0CwQBgiL._AC_SX425_.jpg"/>
+            <AnimeCard 
+                title="Attack on Titan" 
+                description="Bell'anime" 
+                image-url="https://m.media-amazon.com/images/I/51K4w8DY5cL._AC_.jpg"
+                pos='0'/>
+            <AnimeCard 
+                title="Bungo stray dogs"
+                description="Bell'anime" 
+                image-url="https://m.media-amazon.com/images/I/71H0CwQBgiL._AC_SX425_.jpg"
+                pos='1'/>
+            <AnimeCard 
+                title="Bungo stray dogs"
+                description="Bell'anime" 
+                image-url="https://m.media-amazon.com/images/I/71H0CwQBgiL._AC_SX425_.jpg"
+                pos='2'/>
+            <AnimeCard 
+                title="Bungo stray dogs"
+                description="Bell'anime" 
+                image-url="https://m.media-amazon.com/images/I/71H0CwQBgiL._AC_SX425_.jpg"
+                pos='3'/>
+            <AnimeCard 
+                title="Bungo stray dogs"
+                description="Bell'anime" 
+                image-url="https://m.media-amazon.com/images/I/71H0CwQBgiL._AC_SX425_.jpg"
+                pos='4'/>
+            <AnimeCard 
+                title="Bungo stray dogs"
+                description="Bell'anime" 
+                image-url="https://m.media-amazon.com/images/I/71H0CwQBgiL._AC_SX425_.jpg"
+                pos='5'/>
         
         </div>
     </div>
