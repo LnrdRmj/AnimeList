@@ -10,7 +10,10 @@ import AnimePageInfo from './components/AnimePageInfo.vue'
 
 const routes =  [
                     { path: '/', component: Home },
-                    { path: '/animeInfo/:name', component: AnimePageInfo },
+                    {
+                        path: '/animeInfo/:name',
+                        component: AnimePageInfo,
+                    },
                 ]
 
 const router = createRouter({
