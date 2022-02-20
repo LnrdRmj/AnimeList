@@ -55,11 +55,8 @@ export default {
 
                 // isIntersecting is true when element and viewport are overlapping
                 // isIntersecting is false when element and viewport don't overlap
-                if(entries[0].isIntersecting === true){
+                if(entries[0].isIntersecting === true)
                     that.show()
-                    console.log('Ora ' + that.id + ' è visibile')
-                    console.log(entries)
-                }
   
             }, { threshold: [0.1] })
 
