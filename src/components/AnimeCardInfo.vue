@@ -7,6 +7,7 @@
                     h-full opacity-0'
                     :style='animationStyle'
                     :id='this.id'
+                    @click="goingToNextPage()"
                     >
                     
             <div class='text-xl text-center flex justify-center content-center h-min'><div>{{ title }}</div></div>
@@ -22,6 +23,7 @@
 </template>
 
 <script>
+import * as OverTransition from './../overTransition'
 
 export default {
     props:['title', 'description', 'image-url', 'pos'],
@@ -34,8 +36,8 @@ export default {
     },
     methods:{
         show: function(){ this.animationName = 'fadein' },
-        goToPageInfo: function(){
-
+        goingToNextPage: function(){
+            OverTransition.cloneToOverTransition($(this.$el));
         }
     },
     computed:{

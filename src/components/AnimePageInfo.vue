@@ -1,10 +1,22 @@
 <template>
-  <div>Info di un anime WOOOOOOOOOO {{ $route.params.name }}</div>
+
+    <div>
+
+        <div>Info di un anime WOOOOOOOOOO {{ $route.params.name }}</div>
+        <img src="" alt="" id='anime-image'>
+
+    </div>
+
 </template>
 
 <script>
-export default {
 
+import * as OverTransition from './../overTransition'
+
+export default {
+    mounted() {
+        OverTransition.moveToDiv($('#anime-image'))
+    },
 }
 </script>
 

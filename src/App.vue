@@ -11,7 +11,9 @@
       </transition>
     </router-view>
 
-    <!-- <AnimeListContainer/> -->
+    <div id='over-transition' class='absolute bg-white top-0'>
+      ciao
+    </div>
 
   </div>  
 
