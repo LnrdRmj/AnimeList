@@ -2,17 +2,15 @@ import $ from 'jquery'
 
 var overTransition;
 
-$(function() {
-
-    overTransition = $('#over-transition')
-
-})
-
 export function cloneToOverTransition(toClone){
     
+    // overTransition = $('#over-transition')
+    
+    overTransition = $('<div></div>').css('position', 'absolute');
+    $('body').append(overTransition);
+
     let clonedEl = toClone.clone()
 
-    overTransition.empty()
     overTransition.append(clonedEl)
 
     let offset = toClone.position();
@@ -34,7 +32,7 @@ export function moveToDiv(newContainer){
     
     overTransition.animate(newContainer.offset(), 1000, 'swing',function(){
 
-        overTransition.empty();
+        overTransition.remove();
 
     });
 

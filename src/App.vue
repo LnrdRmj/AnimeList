@@ -11,10 +11,6 @@
       </transition>
     </router-view>
 
-    <div id='over-transition' class='absolute bg-white top-0'>
-      ciao
-    </div>
-
   </div>  
 
 </template>
