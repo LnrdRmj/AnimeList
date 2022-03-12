@@ -15,6 +15,8 @@ const routes =  [
                     {
                         path: '/animeInfo/:name',
                         component: AnimePageInfo,
+                        name: 'animepageinfo',
+                        props: true
                     },
                 ]
 
