@@ -7,13 +7,12 @@
                     h-full opacity-0'
                     :style='animationStyle'
                     :id='this.id'
-                    @click="goingToNextPage()"
-                    >
+                     >
                     
             <div class='text-xl text-center flex justify-center content-center h-min'><div>{{ title }}</div></div>
 
             <div class='overflow-hidden h-full'>
-                <img :src="imageUrl" :alt="title" class='h-full w-full'>
+                <img :src="imageUrl" :alt="title" class='h-full w-full' @click="goingToNextPage($event)">
             </div>
 
         </div>
@@ -36,8 +35,8 @@ export default {
     },
     methods:{
         show: function(){ this.animationName = 'fadein' },
-        goingToNextPage: function(){
-            OverTransition.cloneToOverTransition($(this.$el));
+        goingToNextPage: function(event){
+            OverTransition.cloneToOverTransition($(event.srcElement));
         }
     },
     computed:{
@@ -45,7 +44,6 @@ export default {
             return {
                 animationName: this.animationName,
                 animationDuration: '1s',
-                // animationDelay: this.pos * this.delay + 'ms',
                 animationFillMode: 'forwards',
             }
         },

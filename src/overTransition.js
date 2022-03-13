@@ -6,8 +6,7 @@ export function cloneToOverTransition(toClone){
     
     // overTransition = $('#over-transition')
     
-    overTransition = $('<div></div>').css('position', 'absolute');
-    $('body').append(overTransition);
+    overTransition = createTemporaryDiv();
 
     let clonedEl = toClone.clone()
 
@@ -21,6 +20,15 @@ export function cloneToOverTransition(toClone){
 
 }
 
+function createTemporaryDiv(){
+
+    let overTransition = $('<div></div>').css('position', 'absolute');
+    $('body').append(overTransition);
+
+    return overTransition;
+
+}
+
 function setSameDimensions(toClone){
 
     overTransition.width(toClone.width())
@@ -28,12 +36,27 @@ function setSameDimensions(toClone){
 
 }
 
+// newContainer e un oggetto jQuery
 export function moveToDiv(newContainer){
     
-    overTransition.animate(newContainer.offset(), 1000, 'swing',function(){
+    return new Promise( (resolve, reject ) => {
 
-        overTransition.remove();
+        overTransition.animate(
+            {
+                top: newContainer.offset().top,
+                left: newContainer.offset().left,
+                width: newContainer.width(),
+                height: newContainer.height()
+            },
+            1000,
+            'swing',
+            function(){
+            
+                overTransition.remove();
+                resolve();
+    
+        });
 
     });
-
+    
 }

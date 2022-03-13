@@ -6,7 +6,7 @@
         
         <div class='flex flex-col xs:flex-row'>
 
-            <img :src="anime.imageUrl" alt="" id='anime-image' class='h-96 w-auto'>
+            <img :src="anime.imageUrl" alt="" id='anime-image' class='h-96 w-auto' :style="imageState">
 
             <div class='p-4'>
                 <p>{{ anime.description }}</p>
@@ -28,8 +28,9 @@ export default {
     data: function () {
         return {
             anime: null,
+            imageOpacity: 0
         }
-
+ 
     },
     created: function() {
 
@@ -37,8 +38,29 @@ export default {
 
     },
     mounted() {
-        OverTransition.moveToDiv($('#anime-image'))
+
+        setTimeout(() => {
+            
+            OverTransition.moveToDiv($('#anime-image')).then( () => {
+
+                this.imageOpacity = 1;
+
+            })
+
+        }, 100);
+        
     },
+    methods: {
+    },
+    computed: {
+        
+        imageState: function (){
+            return {
+                opacity: this.imageOpacity
+            }
+        }
+
+    }
 }
 </script>
 
