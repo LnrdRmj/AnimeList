@@ -41,16 +41,30 @@ export default {
 
         setTimeout(() => {
             
-            OverTransition.moveToDiv($('#anime-image')).then( () => {
+            try{
 
-                this.imageOpacity = 1;
+                OverTransition.moveToDiv($('#anime-image')).then( () => {
 
-            })
+                    this.showImage()
+
+                })
+
+            }
+            catch(e){
+
+                this.showImage()
+
+            }
 
         }, 100);
         
     },
     methods: {
+
+        showImage: function () {
+            this.imageOpacity = 1;
+        }
+
     },
     computed: {
         

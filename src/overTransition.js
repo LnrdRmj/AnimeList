@@ -39,6 +39,8 @@ function setSameDimensions(toClone){
 // newContainer e un oggetto jQuery
 export function moveToDiv(newContainer){
     
+    if (!overTransition) throw 'no overtransition was created'
+
     return new Promise( (resolve, reject ) => {
 
         overTransition.animate(
