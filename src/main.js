@@ -4,7 +4,7 @@ import './index.css'
 import VueObserveVisibility from 'vue-observe-visibility'
 
 import { createRouter, createWebHashHistory } from 'vue-router'
-import $ from 'jquery'
+import * as $ from 'jquery'
 window.$ = $
 
 import Home from './components/Home.vue'

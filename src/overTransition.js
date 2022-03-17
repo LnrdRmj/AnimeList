@@ -1,10 +1,8 @@
-import $ from 'jquery'
+
 
 var overTransition;
 
 export function cloneToOverTransition(toClone){
-    
-    // overTransition = $('#over-transition')
     
     overTransition = createTemporaryDiv();
 
