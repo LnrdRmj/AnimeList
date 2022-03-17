@@ -2,16 +2,23 @@
     
     <router-link :to='"/animeInfo/" + title'>
 
-        <div class='flex flex-col
-                    border-teal-600 border-solid border-2
+        <div class='group flex flex-col justify-center items-center
                     h-full opacity-0'
                     :style='animationStyle'
                     :id='this.id'
                      >
                     
-            <div class='text-xl text-center flex justify-center content-center h-min'><div>{{ title }}</div></div>
+            <div class='text-xl text-center flex justify-center items-center
+                        bg-gradient-to-t to-teal-400 from-white
+                        h-11 mb-2 w-full
+                        rounded-lg rounded-b-none
+                        duration-500 group-hover:scale-110'>
 
-            <div class='overflow-hidden h-full'>
+                <div>{{ title }}</div>
+
+            </div>
+
+            <div class='overflow-hidden h-full w-11/12'>
                 <img :src="imageUrl" :alt="title" class='h-full w-full' @click="goingToNextPage($event)">
             </div>
 
