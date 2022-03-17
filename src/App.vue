@@ -47,7 +47,7 @@ body{
 
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+  display: none;
 }
 
 </style>
