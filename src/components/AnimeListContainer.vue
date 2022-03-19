@@ -2,12 +2,6 @@
     
     <div class="p-10">
 
-        <div class="w-full flex justify-end px-10">
-
-            <AnimeAdd></AnimeAdd>
-
-        </div>
-
         <!-- Per fare il bordo gradient -->
         <!-- <div class="bg-white p-[10px] my-10 -z-10
                     rounded-md
@@ -31,14 +25,12 @@
 <script>
 
 import AnimeCard from './AnimeCardInfo.vue'
-import AnimeAdd from './AnimeAdd.vue'
 
 import animeData from '../animeList.json'
 
 export default {
     components: {
         AnimeCard,
-        AnimeAdd
     },
     data: function (){
         return {
