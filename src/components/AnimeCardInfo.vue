@@ -5,8 +5,7 @@
         <div class='group flex flex-col justify-center items-center
                     h-full opacity-0'
                     :style='animationStyle'
-                    :id='this.id'
-                     >
+                    :id='this.id'>
                     
             <div class='text-xl text-center flex justify-center items-center
                         h-11 mb-2 w-full

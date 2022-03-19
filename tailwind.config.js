@@ -37,6 +37,7 @@ module.exports = {
             800: '#bd305a',
             900: '#b61948',
         },
+        tertiary: '#D8DBE2',
         ...colors
     },
     extend: {},

@@ -1,16 +1,11 @@
 <template>
-  
-    <div class="rounded-md">
-        
-        <div class="text-xl">
-
-            <Icon icon="akar-icons:plus"/>
-
-        </div>
-
     
-    </div>
-
+    <router-link to="/add">
+        <div class="bg-tertiary rounded-sm p-1">
+            <Icon icon="akar-icons:plus" class="text-3xl"/>
+        </div>
+    </router-link>
+    
 </template>
 
 <script>
@@ -25,9 +20,3 @@ export default {
 
 }
 </script>
-
-<style scoped>
-
-
-
-</style>
