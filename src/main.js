@@ -9,6 +9,7 @@ window.$ = $
 
 import Home from './components/Home.vue'
 import AnimePageInfo from './components/AnimePageInfo.vue'
+import AnimeAdd from './components/AddPage.vue'
 
 const routes =  [
                     { path: '/', component: Home },
@@ -17,6 +18,11 @@ const routes =  [
                         component: AnimePageInfo,
                         name: 'animepageinfo',
                         props: true
+                    },
+                    {
+                        path: '/add',
+                        component: AnimeAdd,
+                        name: 'add'
                     },
                 ]
 
