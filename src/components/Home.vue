@@ -2,13 +2,13 @@
   
     <div>
 
-    <div class="w-full flex justify-end px-10">
+        <div class="w-full flex justify-end px-10">
 
-            <AnimeAdd></AnimeAdd>
+                <AnimeAdd></AnimeAdd>
 
-    </div>
+        </div>
 
-    <AnimeListContainer/>        
+        <AnimeListContainer/>        
 
     </div>
 
