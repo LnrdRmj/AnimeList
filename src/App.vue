@@ -1,8 +1,7 @@
 <template>
 
   <!-- Body -->
-  <!-- <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-full"> -->
-  <div>
+  <div class="bg-primary-900 h-full min-h-screen text-secondary-900 transi">
     <Header/>
 
     <router-view v-slot="{ Component }">
@@ -28,9 +27,9 @@ export default {
 <style>
 
 body{
-  background: rgb(236,72,153);
-  background: linear-gradient(94deg, rgba(168,85,247,1) 0%, rgba(99,102,241,1) 50%, rgba(236,72,153,1) 100%);
-
+    background: rgb(236,72,153);
+    background: linear-gradient(94deg, rgba(168,85,247,1) 0%, rgba(99,102,241,1) 50%, rgba(236,72,153,1) 100%);
+    background: var(--primary-color);
 }
 
 #app {

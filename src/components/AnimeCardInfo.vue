@@ -9,12 +9,11 @@
                      >
                     
             <div class='text-xl text-center flex justify-center items-center
-                        bg-gradient-to-t to-teal-400 from-white
                         h-11 mb-2 w-full
-                        rounded-lg rounded-b-none
+                        rounded-lg rounded-b-none border-solid border-2 border-b-0 border-secondary-500
                         duration-500 group-hover:scale-110'>
 
-                <div>{{ title }}</div>
+                <div class="text-secondary-50">{{ title }}</div>
 
             </div>
 

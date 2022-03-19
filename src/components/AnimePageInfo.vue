@@ -2,11 +2,19 @@
 
     <div class='p-4'>
 
-        <div class="text-2xl font-extrabold p-4"> {{ anime.title }}</div>
+        <div class="font-extrabold p-4 w-full text-center
+                    text-3xl sm:text-5xl">
+            {{ anime.title }}
+        </div>
         
-        <div class='flex flex-col xs:flex-row'>
+        <div class='flex flex-col items-center
+                    xs:flex-row xs:justify-start'>
 
-            <img :src="anime.imageUrl" alt="" id='anime-image' class='h-96 w-auto' :style="imageState">
+            <img :src="anime.imageUrl" alt="" id='anime-image' 
+                class='w-fit duration-500
+                        h-96
+                        md:h-[30rem]
+                        lg:h-[40rem]' :style="imageState">
 
             <div class='p-4'>
                 <p>{{ anime.description }}</p>
