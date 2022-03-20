@@ -1,11 +1,11 @@
 <template>
 
   <!-- Body -->
-  <div class="bg-primary-900 h-full min-h-screen text-secondary-900 transi">
+  <div class="bg-primary-900 h-full min-h-screen text-secondary-900">
     <Header/>
 
-    <router-view v-slot="{ Component }">
-      <transition name="fade">
+    <router-view v-slot="{ Component, route }">
+      <transition :name="route.meta.transition || 'fade'">
         <component :is="Component" />
       </transition>
     </router-view>
