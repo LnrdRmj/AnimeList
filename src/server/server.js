@@ -11,9 +11,6 @@ app.put('/addAnime', (req, res) => {
 
     let animeToAdd = JSON.parse(req.query.anime)
     
-    console.log(req.query);
-    console.log(animeToAdd.mal_id)
-
     let db = JSON.parse( fs.readFileSync(__dirname +'/../animeList.json', 'utf8') )
     db[animeToAdd.mal_id] = animeToAdd
     

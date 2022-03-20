@@ -1,6 +1,6 @@
 <template>
     
-    <router-link :to='"/animeInfo/" + title'>
+    <router-link :to='"/animeInfo/" + anime.mal_id'>
 
         <div class='group flex flex-col justify-center items-center
                     h-full opacity-0'
@@ -12,12 +12,12 @@
                         rounded-lg rounded-b-none border-solid border-2 border-b-0 border-secondary-500
                         duration-500 group-hover:scale-110'>
 
-                <div class="text-secondary-50">{{ title }}</div>
+                <div class="text-secondary-50">{{ anime.title_english }}</div>
 
             </div>
 
             <div class='overflow-hidden h-full w-11/12'>
-                <img :src="imageUrl" :alt="title" class='h-full w-full' @click="goingToNextPage($event)">
+                <img :src="anime.images.jpg.large_image_url" :alt="anime.title_english" class='h-full w-full' @click="goingToNextPage($event)">
             </div>
 
         </div>
@@ -30,7 +30,7 @@
 import * as OverTransition from './../overTransition'
 
 export default {
-    props:['title', 'description', 'image-url', 'pos'],
+    props:['anime', 'pos'],
     data() {
         return {
             delay: 100,

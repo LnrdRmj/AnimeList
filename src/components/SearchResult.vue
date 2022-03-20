@@ -10,7 +10,7 @@
         </div>
 
         <div class="mx-3 text-lg md:text-2xl text-tertiary">
-            {{ resultData.title_english }}
+            {{ resultData.title_english || resultData.title }}
         </div>
 
         <button @click="addAnime"> aggiungi </button>

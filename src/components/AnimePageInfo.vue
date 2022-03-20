@@ -10,7 +10,7 @@
         <div class='flex flex-col items-center
                     xs:flex-row xs:justify-start'>
 
-            <img :src="anime.imageUrl" alt="" id='anime-image' 
+            <img :src="anime.images.jpg.large_image_url" alt="" id='anime-image' 
                 class='w-fit duration-500
                         h-96
                         md:h-[30rem]
@@ -43,6 +43,7 @@ export default {
     created: function() {
 
         this.anime = animeData[this.$route.params.name]
+        console.log(this.anime)
 
     },
     mounted() {

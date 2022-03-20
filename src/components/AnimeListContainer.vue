@@ -12,8 +12,7 @@
                         p-5 duration-75">
 
                 <AnimeCard v-for="anime in animeData" :key="anime.title"
-                    :title="anime.title"
-                    :image-url="anime.imageUrl"/>
+                    :anime="anime"/>
                 
             </div>
         <!-- </div> -->
