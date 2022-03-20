@@ -1,14 +1,10 @@
 <template>
   
-    <div class="flex flex-col justify-center items-center pt-20">
+    <div class="flex flex-col justify-center items-center pt-20 w-11/12 sm:w-1/2 m-auto">
 
-        <SearchBar @typed="search"></SearchBar>
+        <SearchBar @typed="search" class="mb-10"></SearchBar>
 
-        <div v-for="result in searchResult" :key="result.title" class="text-white">
-
-            ciao {{ result.title }}
-
-        </div>
+        <SearchResult v-for="result in searchResult" :key="result.title" :resultData="result"/>
 
     </div>
 
@@ -17,22 +13,25 @@
 <script>
 
 import SearchBar from './SearchBar.vue'
-import axios from 'axios';
+import SearchResult from './SearchResult.vue'
+import axios from 'axios'
 
 export default {
     data: function (){
 
         return {
             searchResult: [],
-            a: [ 1, 2, 3, 4]
         }
 
     },
     components: {
-        SearchBar
+        SearchBar,
+        SearchResult
     },
     methods: {
         search: function(toSearch) {
+
+            if (!this.valid(toSearch)) return;
 
             var options = {
                 method: 'GET',
@@ -44,8 +43,6 @@ export default {
                 }
             };
 
-            var t = this;
-
             axios.request(options).then((response) => {
                 
                 console.log(response.data.data);
@@ -54,6 +51,13 @@ export default {
             }).catch(function (error) {
                 console.error(error);
             });
+
+        },
+        valid: function (toSearch) {
+
+            if (toSearch == '') return false
+
+            return true
 
         }
     }
