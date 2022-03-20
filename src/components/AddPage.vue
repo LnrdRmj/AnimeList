@@ -38,6 +38,7 @@ export default {
                 url: '/api/anime',
                 params: {q: toSearch},
                 headers: {
+                    "Access-Control-Allow-Origin" : "*",
                     'x-rapidapi-host': 'jikan1.p.rapidapi.com',
                     'x-rapidapi-key': '2f5006fe38mshc85f9f66949f01ep1420b7jsnbf705c1ce8b3',
                 }
@@ -48,7 +49,8 @@ export default {
                 console.log(response.data.data);
                 this.searchResult = response.data.data;
 
-            }).catch(function (error) {
+            })
+            .catch(function (error) {
                 console.error(error);
             });
 
