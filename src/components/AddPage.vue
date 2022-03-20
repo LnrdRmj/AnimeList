@@ -14,7 +14,7 @@
 
 import SearchBar from './SearchBar.vue'
 import SearchResult from './SearchResult.vue'
-import axios from 'axios'
+import * as AnimeApi from './../animeAPI/animeApi'
 
 export default {
     data: function (){
@@ -33,18 +33,7 @@ export default {
 
             if (!this.valid(toSearch)) return;
 
-            var options = {
-                method: 'GET',
-                url: '/api/anime',
-                params: {q: toSearch},
-                headers: {
-                    "Access-Control-Allow-Origin" : "*",
-                    'x-rapidapi-host': 'jikan1.p.rapidapi.com',
-                    'x-rapidapi-key': '2f5006fe38mshc85f9f66949f01ep1420b7jsnbf705c1ce8b3',
-                }
-            };
-
-            axios.request(options).then((response) => {
+            AnimeApi.search(toSearch).then((response) => {
                 
                 console.log(response.data.data);
                 this.searchResult = response.data.data;

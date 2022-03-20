@@ -4,13 +4,13 @@
                 border-2 border-solid border-primary-500 rounded-lg
                 p-3 mb-4">
 
-        <div class="h-20 flex items-center">
+        <div class="h-30 flex items-center">
             <img :src="resultData.images.jpg.image_url" :alt="resultData.title"
-                    class="h-auto max-h-20 w-14">
+                    class="h-auto max-h-30 w-20">
         </div>
 
         <div class="mx-3 text-lg md:text-2xl text-tertiary">
-            {{ resultData.title }}
+            {{ resultData.title_english }}
         </div>
 
         <button @click="addAnime"> aggiungi </button>
@@ -21,7 +21,7 @@
 
 <script>
 
-import axios from 'axios'
+import * as AnimeApi from './../animeAPI/animeApi'
 
 export default {
     props: ['resultData'],
@@ -29,11 +29,7 @@ export default {
 
         addAnime: function () {
 
-            axios.put('http://localhost:3000/addAnime', {
-                animeId: this.$props.resultData.mal_id
-            })
-            .then( (data) => {
-                console.log('fatto')
+            AnimeApi.saveAnime(this.$props.resultData).then( (data) => {
                 console.log(data)
             })
             .catch( function (error) {
