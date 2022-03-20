@@ -13,13 +13,38 @@
             {{ resultData.title }}
         </div>
 
+        <button @click="addAnime"> aggiungi </button>
+
     </div>
 
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
     props: ['resultData'],
+    methods: {
+
+        addAnime: function () {
+
+            axios.put('http://localhost:3000/addAnime', {
+                animeId: this.$props.resultData.mal_id
+            })
+            .then( (data) => {
+                console.log('fatto')
+                console.log(data)
+            })
+            .catch( function (error) {
+
+                console.log(error)
+
+            })
+
+        }
+
+    }
 }
 </script>
 
