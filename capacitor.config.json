@@ -1,0 +1,6 @@
+{
+  "appId": "com.anime.list",
+  "appName": "AnimeList",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
