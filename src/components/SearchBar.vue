@@ -26,12 +26,19 @@ export default {
     components: {
         Icon,
     },
+    props: ['delaySearch'],
     data: function (){
         return {
             toSearch: null,
             searching: null,
-            delaySearch: 500
+            delaySearch: null,
+            defaultDelatySearch: 500
         }
+    },
+    created: function () {
+
+        this.delaySearch = this.$props.delaySearch === null ? this.defaultDelatySearch : this.$props.delaySearch
+
     },
     methods: {
         inputChanged: function (event) {

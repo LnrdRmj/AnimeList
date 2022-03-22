@@ -11,7 +11,8 @@
                         border-4 border-solid border-secondary-900 rounded-xl
                         p-5 duration-75">
 
-                <AnimeCard v-for="anime in animeData" :key="anime.title"
+
+                <AnimeCard v-for="anime in animes" :key="anime.title"
                     :anime="anime"/>
                 
             </div>
@@ -25,15 +26,13 @@
 
 import AnimeCard from './AnimeCardInfo.vue'
 
-import animeData from '../animeList.json'
-
 export default {
+    props: ['animes'],
     components: {
         AnimeCard,
     },
     data: function (){
         return {
-            animeData: animeData
         }
     }
     ,created: function () {
