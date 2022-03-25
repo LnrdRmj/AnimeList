@@ -35,7 +35,6 @@ export default {
 
             AnimeApi.search(toSearch).then((response) => {
                 
-                console.log(response.data.data);
                 this.searchResult = response.data.data;
 
             })

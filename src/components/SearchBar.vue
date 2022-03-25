@@ -26,7 +26,7 @@ export default {
     components: {
         Icon,
     },
-    props: ['delaySearch'],
+    props: ['delaySearchProp'],
     data: function (){
         return {
             toSearch: null,
@@ -37,7 +37,7 @@ export default {
     },
     created: function () {
 
-        this.delaySearch = this.$props.delaySearch === null ? this.defaultDelatySearch : this.$props.delaySearch
+        this.delaySearch = typeof this.$props.delaySearchProp === 'undefined' ? this.defaultDelatySearch : this.$props.delaySearchProp
 
     },
     methods: {

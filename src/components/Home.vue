@@ -23,7 +23,8 @@
 import AnimeListContainer from './AnimeListContainer.vue'
 import AnimeAdd from './AnimeAdd.vue'
 import SearchBar from './SearchBar.vue'
-import animeData from '../animeList.json'
+import * as DB from '../animeAPI/db'
+import * as AnimeAPI from '../animeAPI/animeApi'
 
 export default {
     components:{
@@ -33,34 +34,29 @@ export default {
     },
     data: function () {
         return {
-            animeData: animeData,
-            filteredAnimes: animeData,
+            animeData: null,
+            filteredAnimes: null,
         }
+    },
+    created: async function () {
+
+        this.animeData = await DB.getAllAnimes()
+        this.filteredAnimes = this.animeData
+
     },
     methods: {
         filter: function (toFilter) {
 
             this.normalizeToSearch(toFilter);
 
-            if (toFilter === '') {
-                this.filteredAnimes = this.animeData
-                return
-            }
-
-            let filteredEntries = Object.entries(this.animeData).filter( (entry) => {
-
-                return entry[1].title?.toLowerCase().includes(toFilter) || entry[1].title_english?.toLowerCase().includes(toFilter)
-
-            })
-
-            this.filteredAnimes = Object.fromEntries(filteredEntries)
+            this.filteredAnimes = AnimeAPI.search(toFilter)
 
         },
         normalizeToSearch: function (toFilter) {
 
             toFilter = toFilter.toLowerCase()
 
-        }
+        },
     }
 }
 </script>

@@ -22,21 +22,20 @@
 <script>
 
 import * as AnimeApi from './../animeAPI/animeApi'
+import * as DB from '../animeAPI/db'
 
 export default {
     props: ['resultData'],
     methods: {
 
-        addAnime: function () {
+        addAnime: async function () {
 
-            AnimeApi.saveAnime(this.$props.resultData).then( (data) => {
-                console.log(data)
-            })
-            .catch( function (error) {
+            let anime = this.$props.resultData
 
-                console.log(error)
+            // All because variable anime is a proxy thx to vue and it cannot be cloned (or whatever that means)
+            DB.addAnime(JSON.parse(JSON.stringify(anime))) // Bullshit
 
-            })
+            console.log(await DB.db.animes.toArray())
 
         }
 
