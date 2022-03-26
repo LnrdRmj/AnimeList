@@ -37,9 +37,9 @@ export function getAnime(id) {
 
 }
 
-export function searchAnimeByTitle(title) {
+export async function searchAnimeByTitle(title) {
 
-    let animes = DB.getAllAnimes()
+    let animes = await DB.getAllAnimes()
     
     if (title === '') {
         return animes
@@ -47,10 +47,16 @@ export function searchAnimeByTitle(title) {
 
     return animes.filter( anime  => {
 
-        return anime.title?.toLowerCase().includes(toFilter) 
-                || anime.title_english?.toLowerCase().includes(toFilter)
+        return anime.title?.toLowerCase().includes(title) 
+                || anime.title_english?.toLowerCase().includes(title)
 
     })
+
+}
+
+export async function getAllAnimes() {
+    
+    return DB.getAllAnimes()
 
 }
 

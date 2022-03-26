@@ -23,7 +23,6 @@
 import AnimeListContainer from './AnimeListContainer.vue'
 import AnimeAdd from './AnimeAdd.vue'
 import SearchBar from './SearchBar.vue'
-import * as DB from '../animeAPI/db'
 import * as AnimeAPI from '../animeAPI/animeApi'
 
 export default {
@@ -40,21 +39,21 @@ export default {
     },
     created: async function () {
 
-        this.animeData = await DB.getAllAnimes()
+        this.animeData = await AnimeAPI.getAllAnimes()
         this.filteredAnimes = this.animeData
 
     },
     methods: {
-        filter: function (toFilter) {
+        filter: async function (toFilter) {
 
             this.normalizeToSearch(toFilter);
 
-            this.filteredAnimes = AnimeAPI.search(toFilter)
+            this.filteredAnimes = await AnimeAPI.searchAnimeByTitle(toFilter)
 
         },
         normalizeToSearch: function (toFilter) {
 
-            toFilter = toFilter.toLowerCase()
+            toFilter = toFilter.toLowerCase().trim();
 
         },
     }
