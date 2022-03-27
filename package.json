@@ -6,7 +6,7 @@
     "dev": "vite --host=192.168.1.114",
     "build": "vite build",
     "preview": "vite preview",
-    "android": "npm run build && npx cap copy android"
+    "android": "npm run build && npx cap sync android"
   },
   "dependencies": {
     "@capacitor/android": "^3.4.3",
