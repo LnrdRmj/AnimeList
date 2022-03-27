@@ -14,7 +14,7 @@ import AnimeAdd from './components/AddPage.vue'
 const routes =  [
                     { path: '/', component: Home },
                     {
-                        path: '/animeInfo/:name',
+                        path: '/animeInfo/:id',
                         component: AnimePageInfo,
                         name: 'animepageinfo',
                         props: true

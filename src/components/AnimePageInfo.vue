@@ -16,12 +16,22 @@
                         md:h-[30rem]
                         lg:h-[40rem]' :style="imageState">
 
-            <div class='p-4'>
-                <p>{{ anime.description }}</p>
+            <div class="flex flex-col w-full">
+
+                <div class="flex justify-center items-center">
+
+                    <Remove class="text-3xl" @click="removeAnime"></Remove>
+
+                </div>
+
+                <div class='p-4 m-auto w-full
+                            border-2 border-solid border-l-0'>
+                    <p class="text-lg font-bold"> da mettere qualcosa </p>
+                </div>
+
             </div>
 
         </div>
-        
 
     </div>
 
@@ -30,20 +40,26 @@
 <script>
 
 import * as OverTransition from './../overTransition'
-import animeData from '../animeList.json'
+import * as AnimeAPI from '../animeAPI/animeApi' 
+import Remove from './Remove.vue'
+import { Icon } from '@iconify/vue'
 
 export default {
+    components: {
+        Remove,
+        Icon
+    },
     data: function () {
         return {
             anime: null,
             imageOpacity: 0
         }
- 
     },
-    created: function() {
-
-        this.anime = animeData[this.$route.params.name]
-        console.log(this.anime)
+    created: async function() {
+        
+        console.log(this.$route.params.id);
+        this.anime = await AnimeAPI.getAnime(this.$route.params.id)
+        console.log(this.anime);
 
     },
     mounted() {
@@ -72,6 +88,11 @@ export default {
 
         showImage: function () {
             this.imageOpacity = 1;
+        },
+        removeAnime: function () {
+
+
+
         }
 
     },

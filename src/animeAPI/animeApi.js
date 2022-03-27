@@ -1,8 +1,14 @@
 var apiEndPoint = '/api/' //This works thanks to a proxy in vite.config.js
 var localApiEndPoint = 'http://localhost:3030/' //This works thanks to a proxy in vite.config.js
 
+import Dexie from "dexie"
 import axios from "axios"
-import * as DB from '../animeAPI/db'
+
+const db = new Dexie('animeDB');
+
+db.version(2).stores({
+    animes: 'mal_id', // Primary key and indexed props
+});
 
 export function search(toSearch){
 
@@ -21,25 +27,28 @@ export function search(toSearch){
 
 }
 
-export function getAnime(id) {
+export async function addAnime (newAnime) {
 
-    var options = {
-        method: 'GET',
-        url: apiEndPoint + 'anime/' + id,
-        headers: {
-            "Access-Control-Allow-Origin" : "*",
-            'x-rapidapi-host': 'jikan1.p.rapidapi.com',
-            'x-rapidapi-key': '2f5006fe38mshc85f9f66949f01ep1420b7jsnbf705c1ce8b3',
-        }
-    }
+    // All because variable anime is a proxy thx to vue and it cannot be cloned (or whatever that means)
+    await db.animes.add(JSON.parse(JSON.stringify(newAnime))) // Bullshit
 
-    return axios.request(options)
+}
+
+export async function getAllAnimes () {
+
+    return db.animes.toArray()
+
+}
+
+export async function getAnime(id) {    
+
+    return (await getAllAnimes()).filter( anime => { return anime.mal_id == id; })[0]
 
 }
 
 export async function searchAnimeByTitle(title) {
 
-    let animes = await DB.getAllAnimes()
+    let animes = await getAllAnimes()
     
     if (title === '') {
         return animes
@@ -53,26 +62,3 @@ export async function searchAnimeByTitle(title) {
     })
 
 }
-
-export async function getAllAnimes() {
-    
-    return DB.getAllAnimes()
-
-}
-
-// export function saveAnime(anime) {
-
-//     var options = {
-//         method: 'PUT',
-//         url: localApiEndPoint + 'addAnime',
-//         params: {anime: anime},
-//         headers: {
-//             "Access-Control-Allow-Origin" : "*",
-//             'x-rapidapi-host': 'jikan1.p.rapidapi.com',
-//             'x-rapidapi-key': '2f5006fe38mshc85f9f66949f01ep1420b7jsnbf705c1ce8b3',
-//         }
-//     }
-
-//     return axios.request(options)
-
-// }

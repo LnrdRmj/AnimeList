@@ -22,7 +22,6 @@
 <script>
 
 import * as AnimeApi from './../animeAPI/animeApi'
-import * as DB from '../animeAPI/db'
 
 export default {
     props: ['resultData'],
@@ -32,8 +31,7 @@ export default {
 
             let anime = this.$props.resultData
 
-            // All because variable anime is a proxy thx to vue and it cannot be cloned (or whatever that means)
-            DB.addAnime(JSON.parse(JSON.stringify(anime))) // Bullshit
+            AnimeApi.addAnime(anime) 
 
             console.log(await DB.db.animes.toArray())
 
