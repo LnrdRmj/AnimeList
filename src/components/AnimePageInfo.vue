@@ -4,23 +4,29 @@
 
         <div class="font-extrabold p-4 w-full text-center
                     text-3xl sm:text-5xl">
-            {{ anime.title }}
+            {{ anime.title || 'loading' }}
         </div>
         
-        <div class='flex flex-col items-center
+        <div class='flex flex-col items-start
                     xs:flex-row xs:justify-start'>
+
+            <div>
 
             <img :src="anime.images.jpg.large_image_url" alt="" id='anime-image' 
                 class='w-fit duration-500
                         h-96
                         md:h-[30rem]
                         lg:h-[40rem]' :style="imageState">
+            </div>
 
-            <div class="flex flex-col w-full">
+
+            <div class="flex flex-col w-full flex-1">
 
                 <div class="flex justify-center items-center">
 
-                    <Remove class="text-3xl" @click="removeAnime"></Remove>
+                    <router-link to="/">
+                        <Remove @click="removeAnime"></Remove>
+                    </router-link>
 
                 </div>
 
@@ -57,9 +63,7 @@ export default {
     },
     created: async function() {
         
-        console.log(this.$route.params.id);
         this.anime = await AnimeAPI.getAnime(this.$route.params.id)
-        console.log(this.anime);
 
     },
     mounted() {
@@ -89,9 +93,9 @@ export default {
         showImage: function () {
             this.imageOpacity = 1;
         },
-        removeAnime: function () {
+        removeAnime: async function () {
 
-
+            await AnimeAPI.removeAnime(this.anime.mal_id)
 
         }
 

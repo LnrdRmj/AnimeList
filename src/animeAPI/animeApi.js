@@ -4,7 +4,7 @@ var localApiEndPoint = 'http://localhost:3030/' //This works thanks to a proxy i
 import Dexie from "dexie"
 import axios from "axios"
 
-const db = new Dexie('animeDB');
+export const db = new Dexie('animeDB');
 
 db.version(2).stores({
     animes: 'mal_id', // Primary key and indexed props
@@ -60,5 +60,11 @@ export async function searchAnimeByTitle(title) {
                 || anime.title_english?.toLowerCase().includes(title)
 
     })
+
+}
+
+export async function removeAnime(id) {
+
+    return await db.animes.delete(id);
 
 }
