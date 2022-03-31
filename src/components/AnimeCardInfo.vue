@@ -7,17 +7,20 @@
                     :style='animationStyle'
                     :id='this.id'>
                     
-            <div class='text-xl text-center flex justify-center items-center
-                        h-11 mb-2 w-full
-                        rounded-lg rounded-b-none border-solid border-2 border-b-0 border-secondary-500
-                        duration-500 group-hover:scale-110'>
+            <div class='h-full w-11/12 z-10 
+                        flex justify-center 
+                        group-hover:scale-110 duration-500'>
+                <img :src="anime.images.jpg.large_image_url" :alt="anime.title_english" class='w-52 h-auto' @click="goingToNextPage($event)">
+            </div>
+
+            <div class='text-2xl text-center flex justify-center items-end
+                        h-72 -m-36 mb-2 pb-3 w-full
+                        rounded-lg border-none
+                        duration-500
+                        bg-gradient-to-t from-secondary-500'>
 
                 <div class="text-secondary-50">{{ anime.title_english }}</div>
 
-            </div>
-
-            <div class='overflow-hidden h-full w-11/12'>
-                <img :src="anime.images.jpg.large_image_url" :alt="anime.title_english" class='h-full w-full' @click="goingToNextPage($event)">
             </div>
 
         </div>
