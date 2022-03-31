@@ -10,7 +10,9 @@
             <div class='h-full w-11/12 z-10 
                         flex justify-center 
                         group-hover:scale-110 duration-500'>
-                <img :src="anime.images.jpg.large_image_url" :alt="anime.title_english" class='w-52 h-auto' @click="goingToNextPage($event)">
+
+                <img :src="anime.images.jpg.large_image_url" :alt="anime.title_english" class='w-48 xs:w-52 h-auto' @click="goingToNextPage($event)">
+            
             </div>
 
             <div class='text-2xl text-center flex justify-center items-end
