@@ -31,11 +31,10 @@ export default {
     methods: {
         search: function(toSearch) {
             
-            console.log('Questo dovresti vederlo da qualche parte');
-
             if (!this.valid(toSearch)) return;
 
-            AnimeApi.search(toSearch).then((response) => {
+            AnimeApi.search(toSearch)
+            .then((response) => {
                 
                 this.searchResult = response.data.data;
 

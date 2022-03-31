@@ -1,5 +1,4 @@
-var apiEndPoint = '/api/' //This works thanks to a proxy in vite.config.js
-var localApiEndPoint = 'http://localhost:3030/' //This works thanks to a proxy in vite.config.js
+var apiEndPoint = 'https://api.jikan.moe/v4/'
 
 import Dexie from "dexie"
 import axios from "axios"
@@ -12,18 +11,11 @@ db.version(2).stores({
 
 export function search(toSearch){
 
-    var options = {
-        method: 'GET',
-        url: apiEndPoint + 'anime',
-        params: {q: toSearch},
-        headers: {
-            "Access-Control-Allow-Origin" : "*",
-            'x-rapidapi-host': 'jikan1.p.rapidapi.com',
-            'x-rapidapi-key': '2f5006fe38mshc85f9f66949f01ep1420b7jsnbf705c1ce8b3',
+    return axios.get(apiEndPoint + 'anime', {
+        params: {
+            q: toSearch
         }
-    }
-
-    return axios.request(options)
+    })
 
 }
 
