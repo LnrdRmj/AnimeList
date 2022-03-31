@@ -22,7 +22,7 @@ const routes =  [
                     {
                         path: '/add',
                         component: AnimeAdd,
-                        name: 'add'
+                        name: 'add',
                     },
                 ]
 

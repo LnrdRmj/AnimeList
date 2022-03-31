@@ -30,6 +30,8 @@ export default {
     },
     methods: {
         search: function(toSearch) {
+            
+            console.log('Questo dovresti vederlo da qualche parte');
 
             if (!this.valid(toSearch)) return;
 
