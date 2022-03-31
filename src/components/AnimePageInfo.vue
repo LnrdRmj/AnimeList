@@ -10,15 +10,15 @@
         <div class='flex flex-col items-start
                     xs:flex-row xs:justify-start'>
 
-            <div>
+            <div class="flex justify-center items-center w-full xs:w-auto">
 
-            <img :src="anime.images.jpg.large_image_url" alt="" id='anime-image' 
-                class='w-fit duration-500
-                        h-96
-                        md:h-[30rem]
-                        lg:h-[40rem]' :style="imageState">
+                <img :src="anime.images.jpg.large_image_url" alt="" id='anime-image' 
+                    class='w-fit duration-500
+                            h-96
+                            md:h-[30rem]
+                            lg:h-[40rem]' :style="imageState">
+
             </div>
-
 
             <div class="flex flex-col w-full flex-1">
 
