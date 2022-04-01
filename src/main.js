@@ -10,6 +10,7 @@ window.$ = $
 import Home from './components/Home.vue'
 import AnimePageInfo from './components/AnimePageInfo.vue'
 import AnimeAdd from './components/AddPage.vue'
+import Test from './components/Test.vue'
 
 const routes =  [
                     { path: '/', component: Home },
@@ -24,6 +25,10 @@ const routes =  [
                         component: AnimeAdd,
                         name: 'add',
                     },
+                    {
+                        path: '/test',
+                        component: Test
+                    }
                 ]
 
 const router = createRouter({
