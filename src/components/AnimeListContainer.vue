@@ -15,11 +15,9 @@
 
             </div>
 
-
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-x-16 gap-y-10
                         border-4 border-solid border-secondary-900 border-b-0 border-t-0
-                        p-5 duration-75">
-
+                        p-5 duration-75 w-full">
 
                 <AnimeCard v-for="anime in animes" :key="anime.title"
                     :anime="anime"/>
