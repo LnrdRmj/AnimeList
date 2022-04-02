@@ -1,17 +1,20 @@
 <template>
     
-    <router-link :to='"/animeInfo/" + anime.mal_id'>
+    <a :href='"#/animeInfo/" + anime.mal_id'>
 
         <div class='group flex flex-col justify-center items-center
                     h-full opacity-0'
                     :style='animationStyle'
                     :id='this.id'>
                     
-            <div class='w-11/12 z-10 
+            <div class='z-10 relative
                         flex justify-center 
-                        group-hover:scale-110 duration-500'>
+                        duration-500'>
+                        <!-- group-hover:scale-110 -->
 
-                <img :src="anime.images.jpg.large_image_url" :alt="anime.title_english" class='w-48 xs:w-52 h-auto' @click="goingToNextPage($event)">
+                <CardOptions/>
+                
+                <img :src="anime.images.jpg.large_image_url" :alt="anime.title_english" class='w-48 xs:w-52 h-auto' @click.self="goingToNextPage($event)">
             
             </div>
 
@@ -19,18 +22,20 @@
 
         </div>
 
-    </router-link>
+    </a>
 
 </template>
 
 <script>
 import * as OverTransition from '../../overTransition'
 import CardTitle from './CardTitle.vue'
+import CardOptions from './CardOptions.vue'
 
 export default {
     props:['anime', 'pos'],
     components: {
-        CardTitle
+        CardTitle,
+        CardOptions
     },
     data() {
         return {
@@ -42,6 +47,8 @@ export default {
     methods:{
         show: function(){ this.animationName = 'fadein' },
         goingToNextPage: function(event){
+            console.log('clicato immagine')
+            return 
             OverTransition.cloneToOverTransition($(event.srcElement));
         }
     },

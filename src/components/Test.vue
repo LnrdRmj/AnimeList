@@ -1,6 +1,10 @@
 <template>
   
-        <Wave class="h-96 w-4/5 m-auto"/>
+    <div class="parent" @click="showAlert('parent clicked')">
+        <span class="child" @click="showAlert('child1 clicked')">Child1</span>
+        <span class="child" @click.stop="showAlert('child2 clicked')">Child2</span>
+        <span class="child" @click.stop="showAlert('child3 clicked')">Child3</span>
+    </div>
 
 </template>
 
@@ -17,7 +21,12 @@ export default {
         return {
             numComponents: 20
         }
-    }
+    },
+    methods: {
+        showAlert(str) {
+            alert(str);
+        },
+    },
 
 }
 </script>
