@@ -21,7 +21,7 @@
 <script>
 
 import AnimeListContainer from './AnimeListContainer.vue'
-import AnimeAdd from './AnimeAdd.vue'
+import AnimeAdd from './ActionButtons/AnimeAdd.vue'
 import SearchBar from './SearchBar.vue'
 import * as AnimeAPI from '../animeAPI/animeApi'
 
