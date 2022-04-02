@@ -7,7 +7,7 @@
                     :style='animationStyle'
                     :id='this.id'>
                     
-            <div class='h-full w-11/12 z-10 
+            <div class='w-11/12 z-10 
                         flex justify-center 
                         group-hover:scale-110 duration-500'>
 
@@ -15,15 +15,7 @@
             
             </div>
 
-            <div class='text-2xl text-center flex justify-center items-end
-                        h-72 -m-36 mb-2 pb-3 w-full
-                        rounded-lg border-none
-                        duration-500
-                        bg-gradient-to-t from-secondary-500'>
-
-                <div class="text-secondary-50">{{ anime.title_english }}</div>
-
-            </div>
+        <CardTitle :title="anime.title_english"/>
 
         </div>
 
@@ -32,10 +24,14 @@
 </template>
 
 <script>
-import * as OverTransition from './../overTransition'
+import * as OverTransition from '../../overTransition'
+import CardTitle from './CardTitle.vue'
 
 export default {
     props:['anime', 'pos'],
+    components: {
+        CardTitle
+    },
     data() {
         return {
             delay: 100,

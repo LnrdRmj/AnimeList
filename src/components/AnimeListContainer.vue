@@ -24,7 +24,7 @@
 
 <script>
 
-import AnimeCard from './AnimeCardInfo.vue'
+import AnimeCard from './cardInfo/AnimeCardInfo.vue'
 
 export default {
     props: ['animes'],
