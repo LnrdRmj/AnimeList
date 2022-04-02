@@ -47,7 +47,7 @@
 
 import * as OverTransition from './../overTransition'
 import * as AnimeAPI from '../animeAPI/animeApi' 
-import Remove from './Remove.vue'
+import Remove from './ActionButtons/Remove.vue'
 import { Icon } from '@iconify/vue'
 
 export default {
