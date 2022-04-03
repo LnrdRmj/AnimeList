@@ -13,11 +13,11 @@
                             class="z-10 focus:rotate-180 duration-500 peer"
                             />
 
-            <ActionButton v-for="(option, index) in options" :key="option.icon"
+            <ActionButton v-for="(option, index) in options" :key="option.icon" tabindex="1"
                             :icon="option.icon"
                             ref="options"
                             :round="true"
-                            @click="option.onclick"
+                            @click.prevent="option.onclick"
                             class="absolute top-0 -z-10
                                     peer-focus:top-20
                                     peer-focus:rotate-[360deg]
