@@ -1,6 +1,6 @@
 <template>
     
-    <a :href='"#/animeInfo/" + anime.mal_id'>
+    <a :href='"#/animeInfo/" + anime.mal_id' style="-webkit-tap-highlight-color: transparent;">
 
         <div class='group flex flex-col justify-center items-center
                     h-full opacity-0'
@@ -10,7 +10,6 @@
             <div class='z-10 relative
                         flex justify-center 
                         duration-500'>
-                        <!-- group-hover:scale-110 -->
 
                 <CardOptions/>
                 
@@ -18,7 +17,7 @@
             
             </div>
 
-        <CardTitle :title="anime.title_english"/>
+            <CardTitle :title="anime.title_english"/>
 
         </div>
 
