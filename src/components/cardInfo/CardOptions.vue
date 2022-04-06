@@ -17,9 +17,10 @@
                             ref="options"
                             :round="true"
                             @click.prevent="option.onclick"
-                            class="absolute top-0 -z-10
+                            class=" absolute top-0 -z-10
                                     group-focus:rotate-[360deg]
                                     duration-500
+                                    hover:animate-wiggle
                             "
                             :class='"group-focus:top-[" + ( (index + 1) * 40) + "px]"'
                             />
@@ -67,7 +68,7 @@ export default {
         },
         like: function (){
 
-            
+
 
             console.log('like on anime');
 
