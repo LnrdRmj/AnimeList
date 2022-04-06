@@ -1,29 +1,27 @@
 <template>
   
-    <div 
-        class=" absolute right-0 top-0 translate-x-1/2 -translate-y-1/2
-                duration-500">
+    <div class=" absolute right-0 top-0 translate-x-1/2 -translate-y-1/2
+                duration-500"
+                @click.prevent="showOptions($event)">
 
-        <div class="relative">
+        <div class="relative group" tabindex="1">
  
-            <div hidden class="peer-focus:top-[40px] peer-focus:top-[80px]"></div>
+            <div hidden class="group-focus:top-[40px] group-focus:top-[80px]"></div>
 
-            <ActionButton   icon='ci:settings-filled' :round="true" tabindex="1"
-                            @click.prevent="showOptions($event)"
-                            class="z-10 focus:rotate-180 duration-500 peer"
+            <ActionButton   icon='ci:settings-filled' :round="true"
+                            class="z-10 group-focus:rotate-180 duration-500 peer"
                             />
 
-            <ActionButton v-for="(option, index) in options" :key="option.icon" tabindex="1"
+            <ActionButton v-for="(option, index) in options" :key="option.icon"
                             :icon="option.icon"
                             ref="options"
                             :round="true"
                             @click.prevent="option.onclick"
                             class="absolute top-0 -z-10
-                                    peer-focus:top-20
-                                    peer-focus:rotate-[360deg]
+                                    group-focus:rotate-[360deg]
                                     duration-500
                             "
-                            :class='"peer-focus:top-[" + ( (index + 1) * 40) + "px]"'
+                            :class='"group-focus:top-[" + ( (index + 1) * 40) + "px]"'
                             />
 
         </div>
@@ -68,6 +66,8 @@ export default {
 
         },
         like: function (){
+
+            
 
             console.log('like on anime');
 
