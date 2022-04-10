@@ -46,9 +46,10 @@ export default {
     methods:{
         show: function(){ this.animationName = 'fadein' },
         goingToNextPage: function(event){
-            console.log('clicato immagine')
-            return 
+
             OverTransition.cloneToOverTransition($(event.srcElement));
+            console.log($(event.srcElement).width());
+
         }
     },
     computed:{

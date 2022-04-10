@@ -1,20 +1,24 @@
-
-
 var overTransition;
 
 export function cloneToOverTransition(toClone){
     
-    overTransition = createTemporaryDiv();
+    overTransition = createTemporaryDiv()
+    setSameDimensions(toClone)
+
+    let offset = toClone.offset()
+    offset.top -= $(document).scrollTop()
+    overTransition.offset(offset)
 
     let clonedEl = toClone.clone()
-
+    prepareCloneEl(clonedEl)
     overTransition.append(clonedEl)
 
-    let offset = toClone.position();
-    offset.top -= $(document).scrollTop();
+}
 
-    overTransition.offset(offset)
-    setSameDimensions(toClone)
+function prepareCloneEl (clonedEl){
+
+    toClone.removeClass()
+    toClone.addClass('h-full w-full')
 
 }
 
@@ -41,22 +45,22 @@ export function moveToDiv(newContainer){
 
     return new Promise( (resolve, reject ) => {
 
-        overTransition.animate(
-            {
-                top: newContainer.offset().top,
-                left: newContainer.offset().left,
-                width: newContainer.width(),
-                height: newContainer.height()
-            },
-            1000,
-            'swing',
-            function(){
-            
-                overTransition.remove();
-                resolve();
-    
-        });
+        console.log(newContainer.width());
 
+        overTransition.animate({
+            top: newContainer.offset().top,
+            left: newContainer.offset().left,
+            width: newContainer.width(),
+            height: newContainer.height()
+        },
+        1000,
+        'swing',
+        function(){
+        
+            overTransition.remove();
+            resolve();
+
+        });
     });
     
 }

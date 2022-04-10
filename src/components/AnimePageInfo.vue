@@ -13,7 +13,7 @@
             <div class="flex justify-center items-center w-full xs:w-auto">
 
                 <img :src="anime.images.jpg.large_image_url" alt="" id='anime-image' 
-                    class='w-fit duration-500
+                    class='w-fit
                             h-96
                             md:h-[30rem]
                             lg:h-[40rem]' :style="imageState">
@@ -67,11 +67,11 @@ export default {
 
     },
     mounted() {
-
+        
         setTimeout(() => {
             
             try{
-
+                
                 OverTransition.moveToDiv($('#anime-image')).then( () => {
 
                     this.showImage()
