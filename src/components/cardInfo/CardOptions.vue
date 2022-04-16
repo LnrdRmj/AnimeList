@@ -34,6 +34,7 @@
 <script>
 
 import ActionButton from "../ActionButtons/ActionButton.vue"
+import * as AnimeOptions from "../../option/options"
 
 export default {
     components: {
@@ -43,12 +44,12 @@ export default {
         return {
             options: [
                 {
-                    name: 'like',
+                    name: AnimeOptions.LIKE,
                     icon: 'akar-icons:heart',
                     onclick: this.like
                 },
                 {
-                    name: 'delete',
+                    name: AnimeOptions.DELETE,
                     icon: 'fluent:delete-28-regular',
                     onclick: this.delete
                 }
@@ -68,13 +69,13 @@ export default {
         },
         like: function (){
 
-
-
+            this.$emit('option', AnimeOptions.LIKE)
             console.log('like on anime');
 
         },
         delete: function (){
 
+            this.$emit('option', AnimeOptions.DELETE)
             console.log('delete on anime');
 
         } 
@@ -82,6 +83,6 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    
 </style>

@@ -11,7 +11,8 @@
                         flex justify-center 
                         duration-500'>
 
-                <CardOptions/>
+                <CardOptions 
+                    @option="handleOption"/>
                 
                 <img :src="anime.images.jpg.large_image_url" :alt="anime.title_english" class='w-48 xs:w-52 h-auto' @click.self="goingToNextPage($event)">
             
@@ -29,6 +30,8 @@
 import * as OverTransition from '../../overTransition'
 import CardTitle from './CardTitle.vue'
 import CardOptions from './CardOptions.vue'
+import * as AnimeOptions from "../../option/options"
+import * as API from "../../animeAPI/animeApi.js"
 
 export default {
     props:['anime', 'pos'],
@@ -49,6 +52,25 @@ export default {
 
             OverTransition.cloneToOverTransition($(event.srcElement));
             console.log($(event.srcElement).width());
+
+        },
+        handleOption: function (param) {
+
+            console.log(param)
+
+            if (param == AnimeOptions.DELETE){
+
+                this.deleteAnime()
+
+            }
+            else if(param == AnimeOptions.LIKE){
+
+            }
+
+        },
+        deleteAnime: function () {
+
+            API.removeAnime(anime.id)
 
         }
     },
