@@ -17,8 +17,8 @@ export function cloneToOverTransition(toClone){
 
 function prepareCloneEl (clonedEl){
 
-    toClone.removeClass()
-    toClone.addClass('h-full w-full')
+    clonedEl.removeClass()
+    clonedEl.addClass('h-full w-full')
 
 }
 
