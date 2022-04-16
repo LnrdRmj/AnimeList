@@ -1,21 +1,22 @@
 <template>
   
-    <div class="parent" @click="showAlert('parent clicked')">
-        <span class="child" @click="showAlert('child1 clicked')">Child1</span>
-        <span class="child" @click.stop="showAlert('child2 clicked')">Child2</span>
-        <span class="child" @click.stop="showAlert('child3 clicked')">Child3</span>
-    </div>
+    <Modal
+        title="Elimare l'anime?"
+        content="sei sicuro di voler eliminare l'anime?"
+        @confirmed="confirmed"
+        @refused="refused"
+        ></Modal>
 
 </template>
 
 <script>
 
-import Wave from "./backgrounds/Wave.vue"
+import Modal from "./modal/Modal.vue";
 
 export default {
 
     components: {
-        Wave
+        Modal
     },
     data: function () {
         return {
@@ -23,9 +24,12 @@ export default {
         }
     },
     methods: {
-        showAlert(str) {
-            alert(str);
+        confirmed: function () {
+            console.log('confermato')
         },
+        refused: function () {
+            console.log('nevermind')
+        }
     },
 
 }
