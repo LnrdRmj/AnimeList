@@ -1,34 +1,39 @@
 <template>
-  
-    <div class="bg-tertiary rounded-lg h-52 w-[30rem] 
-                absolute 
+    
+    <div class="absolute 
                 top-1/2 -translate-y-1/2
-                left-1/2 -translate-x-1/2
-                p-6
-                flex flex-col justify-between items-center">
+                left-1/2 -translate-x-1/2">
 
-        <!-- title -->
-        <div class="text-3xl font-bold">
+        <div class="bg-tertiary rounded-lg h-52 w-[30rem] 
+                    p-6
+                    flex flex-col justify-between items-center
+                    animate-pop
+                    ">
 
-            {{ title }}
+            <!-- title -->
+            <div class="text-3xl font-bold">
 
-        </div>
+                {{ title }}
 
-        <!-- body -->
-        <div class="text-lg font-semibold">
+            </div>
 
-            {{ content }}
+            <!-- body -->
+            <div class="text-lg font-semibold">
 
-        </div>
+                {{ content }}
 
-        <!-- buttons -->
-        <div class="w-full
-                    flex justify-evenly">
+            </div>
 
-            <ModalButton label="confirm" @click="confirmed"/>
+            <!-- buttons -->
+            <div class="w-full
+                        flex justify-evenly">
+
+                <ModalButton label="Confirm" @click="confirmed"/>
+                
+                <ModalButton label="Nevermind" @click="refused"/>
             
-            <ModalButton label="Nevermind" @click="refused"/>
-        
+            </div>
+
         </div>
 
     </div>

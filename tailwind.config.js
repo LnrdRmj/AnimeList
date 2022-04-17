@@ -15,13 +15,19 @@ module.exports = {
     extend: {
         animation: {
             wiggle: 'wiggle .2s ease-in-out 1',
+            pop: 'pop .5s ease-in-out',
         },
         keyframes: {
-            wiggle : {
+            wiggle: {
                 '0%': { transform: 'rotate(-20deg)' },
                 '25%': { transform: 'rotate(20deg)' },
                 '75%': { transform: 'rotate(-20deg)' },
                 '100%' : {transform: 'rotate(20deg)'}
+            },
+            pop: {
+                '0%': { transform: 'scale(0)' },
+                '75%': { transform: 'scale(120%)' },
+                '100%': { transform: 'scale(100%)' },
             }
         },
         colors: {
