@@ -88,10 +88,9 @@ export default {
             this.active = !this.active
         },
         inside: function () {
-            console.log('inside modal');
+            
         },
         outside: function () {
-            console.log('outside modal');
             this.hide();
         }
     }
