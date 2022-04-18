@@ -82,7 +82,7 @@ export default {
                 this.active = false
                 modalContainer.css('opacity', '1')
             })
-            
+
         },
         toggle: function () {
             this.active = !this.active
@@ -92,7 +92,7 @@ export default {
         },
         outside: function () {
             console.log('outside modal');
-
+            this.hide();
         }
     }
 }
