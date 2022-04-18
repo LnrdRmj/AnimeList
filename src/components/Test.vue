@@ -1,23 +1,30 @@
 <template>
-  
-    <Modal
-        title="Elimare l'anime?"
-        content="sei sicuro di voler eliminare l'anime?"
-        @confirmed="confirmed"
-        @refused="refused"
-        ></Modal>
+
+        <div>
+
+            <button class="bg-primary-100" @click="test()">
+                cliccami
+            </button>
+
+            <Modal ref="modal"
+                title="Prova"
+                content="Corpo di prova"
+            />
+
+        </div>
 
 </template>
 
 <script>
 
 import Modal from "./modal/Modal.vue";
+import Modal1 from "./modal/Modal.vue";
 
 export default {
 
     components: {
-        Modal
-    },
+    Modal,
+},
     data: function () {
         return {
             numComponents: 20
@@ -29,6 +36,12 @@ export default {
         },
         refused: function () {
             console.log('nevermind')
+        },
+        test: function () {
+
+            this.$refs.modal.toggle()
+            console.log(this.$refs.modal);
+
         }
     },
 

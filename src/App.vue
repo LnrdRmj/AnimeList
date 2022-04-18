@@ -16,10 +16,12 @@
 
 <script>
 import Header from './components/Header.vue'
+import Modal from './components/modal/Modal.vue'
 
 export default {
   components: {
     Header,
+    Modal
   }
 }
 </script>
