@@ -7,8 +7,8 @@
             </button>
 
             <Modal ref="modal"
-                title="Prova"
-                content="Corpo di prova"
+                pTitle="Prova"
+                pContent="Corpo di prova"
             />
 
         </div>

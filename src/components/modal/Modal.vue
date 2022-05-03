@@ -19,7 +19,7 @@
             <!-- title -->
             <div class="text-3xl font-bold">
 
-                {{ title }}
+                {{ this.title }}
 
             </div>
 
@@ -51,29 +51,46 @@
 import ModalButton from './ModalButton.vue'
 
 export default {
-    props: ['title', 'content'],
+    props: ['pTitle', 'pContent'],
     components: {
         ModalButton
     },
     data: function () {
         return {
-            active: false
+            active: false,
+            title: null,
+            content: null
         }
     },
     mounted: function () {
-        this.$props.title = 'prova'
+
+        this.title = this.pTitle
+        this.content = this.pContent
+
     },
     methods: {
         confirmed: function () {
+
+            this.close()
+
             this.$emit('confirmed')
         },
         refused: function () {
             this.$emit('refused')
         },
-        show: function() {
+        show: function(options) {
+
+            this.parseShowOptions(options);
+
             this.active = true
         },
-        hide: function() {
+        parseShowOptions: function (options) {
+
+            if (options.title) this.title = options.title
+            if (options.content) this.content = options.content
+
+        },
+        close: function() {
 
             let modalContainer = $(this.$refs.modalContainer)
             modalContainer.animate({
@@ -91,7 +108,7 @@ export default {
             
         },
         outside: function () {
-            this.hide();
+            this.close();
         }
     }
 }

@@ -1,43 +1,53 @@
 <template>
     
-    <a :href='"#/animeInfo/" + anime.mal_id' style="-webkit-tap-highlight-color: transparent;">
+    <div>
 
-        <div class='group flex flex-col justify-center items-center
-                    h-full opacity-0'
-                    :style='animationStyle'
-                    :id='this.id'>
+        <a :href='"#/animeInfo/" + anime.mal_id' style="-webkit-tap-highlight-color: transparent;">
+
+            <div class='group flex flex-col justify-center items-center
+                        h-full opacity-0'
+                        :style='animationStyle'
+                        :id='this.id'>
+                        
+                <div class='z-10 relative
+                            flex justify-center 
+                            duration-500'>
+
+                    <CardOptions 
+                        @option="handleOption"/>
                     
-            <div class='z-10 relative
-                        flex justify-center 
-                        duration-500'>
-
-                <CardOptions 
-                    @option="handleOption"/>
+                    <img :src="anime.images.jpg.large_image_url" :alt="anime.title_english" class='w-48 xs:w-52 h-auto' @click.self="goingToNextPage($event)">
                 
-                <img :src="anime.images.jpg.large_image_url" :alt="anime.title_english" class='w-48 xs:w-52 h-auto' @click.self="goingToNextPage($event)">
-            
+                </div>
+
+                <CardTitle :title="anime.title_english ?? anime.title"/>
+
             </div>
 
-            <CardTitle :title="anime.title_english"/>
+        </a>
 
-        </div>
+        <Modal ref="modal"/>
 
-    </a>
+    </div>
+    
 
 </template>
 
 <script>
 import * as OverTransition from '../../overTransition'
-import CardTitle from './CardTitle.vue'
-import CardOptions from './CardOptions.vue'
 import * as AnimeOptions from "../../option/options"
 import * as API from "../../animeAPI/animeApi.js"
+
+import Modal from '../modal/Modal.vue'
+import CardTitle from './CardTitle.vue'
+import CardOptions from './CardOptions.vue'
 
 export default {
     props:['anime', 'pos'],
     components: {
         CardTitle,
-        CardOptions
+        CardOptions,
+        Modal
     },
     data() {
         return {
@@ -45,6 +55,9 @@ export default {
             animationName: 'none',
             id: '',
         }
+    },
+    created() {
+      console.log(this.$props.anime);  
     },
     methods:{
         show: function(){ this.animationName = 'fadein' },
@@ -69,8 +82,13 @@ export default {
 
         },
         deleteAnime: function () {
+            
+            this.$refs.modal.show({
+                title: 'Sto per eliminare l\' anime',
+                content: 'Ne sei proprio sicuro?'
+            })
 
-            API.removeAnime(anime.id)
+            // API.removeAnime(anime.id)
 
         }
     },
